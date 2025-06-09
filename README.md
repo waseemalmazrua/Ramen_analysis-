@@ -1,4 +1,4 @@
-🍜 Ramen Ratings Analysis
+#🍜 Ramen Ratings Analysis
 📌 Overview
 This project explores a dataset of global instant ramen reviews to uncover patterns in product quality across countries, brands, and packaging styles. The goal is to extract meaningful insights from consumer ratings using Python and data visualization.
 
