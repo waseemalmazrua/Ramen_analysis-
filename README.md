@@ -1,57 +1,29 @@
-# 🍜 Ramen Ratings Analysis
+🍜 Data Storytelling with Ramen | Product Ratings Analysis  
+I explored a global dataset of instant ramen products and went beyond visuals — using real statistics to uncover what truly influences ratings. Here's what I found:
 
-##  Overview  
-This project explores a dataset of global **instant ramen reviews** to uncover patterns in product quality across countries, brands, and packaging styles.  
-The goal is to extract meaningful insights from consumer ratings using Python, visualization, and statistical modeling.
+### 🔍 Key Insights:
+- 84% of ramen products were rated Excellent or Good.  
+- 🇯🇵 Japan leads with the most highly rated products, followed by 🇰🇷 South Korea and 🇺🇸 the USA.  
+- Brand Nissin stood out with over 200 top-rated products.  
+- Pack-style ramen received the highest average ratings — higher than Cup or Bowl.
 
----
+### 📊 What makes this more than just charts?
+I used statistical modeling to validate the patterns I observed.
 
-##  Objectives  
-- Identify which **countries** produce the most top-rated ramen.  
-- Analyze **brands** with consistent high-quality products.  
-- Evaluate how **packaging styles** (e.g., Pack, Bowl, Cup) affect ratings.  
-- Apply **statistical analysis** to test significance of differences.  
-- Visualize **categorical distributions and trends** clearly and interactively.
+Instead of using a simple linear regression, I applied an **Ordinal Logistic Regression** — a model specifically designed for ranked data like star ratings.  
+It helped quantify the true effect of **Country, Brand, and Packaging Style** on ramen ratings.
 
----
+✅ The model was highly significant (**p < 0.001**), showing that these features **meaningfully influence** how ramen is rated by consumers.
 
-##  Tools & Technologies  
-- Python: `Pandas`, `NumPy`, `Seaborn`, `Matplotlib`, `Statsmodels`, `SciPy`  
-- Jupyter Notebook  
-- Data Cleaning & Transformation  
-- Categorical Analysis & Statistical Testing  
-- Barplots, Boxplots, GroupBy Visualizations  
-- Hypothesis Testing & Regression Modeling  
+For example:
+- Ramen from the USA had significantly lower ratings.
+- Brands like **Nissin** and **Nongshim** were strongly associated with higher satisfaction.
+- Cup-style ramen received statistically lower ratings than Pack-style.
 
----
+I also ran an independent t-test comparing Pack vs Bowl packaging styles.  
+Interestingly, while Pack had a slightly higher average, the difference was **not statistically significant**.
 
-##  Key Insights  
-- Over **84%** of ramen products received either **Excellent** or **Good** ratings.  
-- 🇯🇵 **Japan** leads in excellent-rated products, followed by **South Korea** 🇰🇷 and the **USA** 🇺🇸.  
--  **Nissin** is the top-performing brand with over **200** highly-rated entries.  
--  **Pack-style ramen** received the highest average star rating among all packaging types.
+> _"Visualization shows the pattern — but statistics prove it."_
 
----
+### 📁 Want to see the full notebook?  
 
-##  Statistical Analysis
-
-### 🔬 Linear Regression (OLS)
-We used an OLS regression model to test how **Country**, **Brand**, and **Style** affect ratings:
-
-```python
-import statsmodels.formula.api as smf
-model = smf.ols('Stars ~ C(Country) + C(Style) + C(Brand)', data=df_clean).fit()
-print(model.summary())
-
-| Metric               | Value       | Interpretation                                                           |
-| -------------------- | ----------- | ------------------------------------------------------------------------ |
-| **R-squared**        | 0.442       | 44.2% of the variation in ratings is explained by the model              |
-| **Adjusted R²**      | 0.344       | Adjusted for number of dummy variables (387 total)                       |
-| **F-statistic**      | 4.495       | Model is overall statistically significant                               |
-| **P-value (F-stat)** | 2.00e-112 ✅ | Strong evidence that at least one variable significantly affects ratings |
-
-Conclusion: The model confirms that country of origin, brand, and style significantly influence ramen ratings.
-
- Author
-Waseem Almazrua
-Data Analyst | Healthcare Quality | AI Enthusiast
